@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #0d6efd;
+  --primary-color: #fe3842;
   --secondary-color: #6c757d;
   --success-color: #198754;
   --info-color: #0dcaf0;
@@ -8,6 +8,7 @@
   --purple-color: #6f42c1;
   --dark-color: #212529;
   --light-color: #f8f9fa;
+  --primary-rgb: 254, 56, 66;
 }
 
 * {
@@ -18,7 +19,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #fe3842 0%, #ff6b6b 100%);
   min-height: 100vh;
   overflow-x: hidden;
 }
@@ -28,17 +29,19 @@ body {
   position: relative;
   width: 100%;
   height: 100vh;
-  padding-top: 76px; /* Account for fixed navbar */
+  padding-top: 70px;
+  padding-bottom: 140px; /* Space for controls */
 }
 
 /* Individual Slides */
 .slide {
   display: none;
   width: 100%;
-  height: calc(100vh - 76px);
+  height: calc(100vh - 210px); /* Account for navbar and controls */
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   animation: slideIn 0.5s ease-in-out;
   overflow-y: auto;
+  padding: 20px 0;
 }
 
 .slide.active {
@@ -68,6 +71,7 @@ body {
   transition: all 0.3s ease;
   border: none;
   border-radius: 15px;
+  margin-bottom: 20px;
 }
 
 .card:hover {
@@ -90,6 +94,14 @@ body {
   background-color: var(--purple-color) !important;
 }
 
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
 /* Architecture Diagram */
 .architecture-diagram {
   padding: 20px;
@@ -103,12 +115,14 @@ body {
   min-width: 100px;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 10px 5px;
 }
 
 .arch-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 10px;
 }
 
 /* Entity Boxes */
@@ -174,38 +188,50 @@ body {
   transform: translateX(5px);
 }
 
-/* Navigation Controls */
+/* Navigation Controls - Repositioned */
 .slide-controls {
   position: fixed;
-  bottom: 100px;
+  bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
   display: flex;
   gap: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 10px 20px;
+  border-radius: 50px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .slide-controls button {
-  border-radius: 50px;
-  padding: 12px 24px;
+  border-radius: 25px;
+  padding: 10px 20px;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
   transition: all 0.3s ease;
+  border: none;
+  background: var(--primary-color);
+  color: white;
 }
 
 .slide-controls button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.4);
+}
+
+.slide-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 /* Progress Bar */
 .progress-container {
   position: fixed;
-  bottom: 60px;
-  left: 0;
-  right: 0;
+  bottom: 40px;
+  left: 20px;
+  right: 20px;
   z-index: 1000;
-  padding: 0 20px;
 }
 
 .progress {
@@ -218,20 +244,21 @@ body {
 .progress-bar {
   transition: width 0.5s ease;
   border-radius: 3px;
+  background: var(--primary-color);
 }
 
 /* Slide Indicators */
 .slide-indicators {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
 }
 
 .indicator {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   border: 2px solid rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.2);
@@ -239,6 +266,8 @@ body {
   font-weight: 600;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  margin: 0 3px;
+  font-size: 0.8rem;
 }
 
 .indicator:hover {
@@ -252,58 +281,127 @@ body {
   transform: scale(1.2);
 }
 
-/* Responsive Design */
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
+  .slideshow-container {
+    padding-top: 60px;
+    padding-bottom: 160px; /* More space for mobile controls */
+  }
+
   .slide {
-    padding: 20px 0;
+    height: calc(100vh - 220px);
+    padding: 15px 0;
+  }
+
+  .slide-icon i {
+    font-size: 3rem;
   }
 
   .display-3 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .display-4 {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .display-2 {
+    font-size: 1.8rem;
+  }
+
+  /* Mobile Navigation Controls */
+  .slide-controls {
+    bottom: 100px;
+    left: 20px;
+    right: 20px;
+    transform: none;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-radius: 15px;
+  }
+
+  .slide-controls button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+
+  /* Mobile Architecture Diagram */
+  .architecture-diagram {
+    padding: 15px;
   }
 
   .arch-box {
     min-width: 80px;
-    padding: 15px 10px !important;
+    padding: 12px 8px !important;
     font-size: 0.8rem;
+    margin: 8px 3px;
   }
 
   .arch-box i {
     font-size: 1.5rem !important;
   }
 
-  .slide-controls {
-    bottom: 120px;
-    flex-direction: column;
-    align-items: center;
+  .arch-arrow {
+    margin: 0 5px;
   }
 
-  .slide-controls button {
-    width: 200px;
+  .arch-arrow i {
+    font-size: 1.5rem !important;
   }
 
+  /* Mobile Progress Bar */
+  .progress-container {
+    bottom: 60px;
+    left: 15px;
+    right: 15px;
+  }
+
+  /* Mobile Indicators */
   .slide-indicators {
-    bottom: 10px;
+    bottom: 20px;
   }
 
   .indicator {
-    width: 35px;
-    height: 35px;
-    font-size: 0.8rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.7rem;
+    margin: 0 2px;
+  }
+
+  /* Mobile Cards */
+  .card {
+    margin-bottom: 15px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  /* Mobile Typography */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.3;
+  }
+
+  .lead {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 576px) {
   .slideshow-container {
     padding-top: 60px;
+    padding-bottom: 180px;
   }
 
   .slide {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 240px);
     padding: 10px 0;
   }
 
@@ -311,12 +409,39 @@ body {
     padding: 0 15px;
   }
 
-  .card-body {
-    padding: 1rem;
+  .slide-controls {
+    bottom: 120px;
+    left: 15px;
+    right: 15px;
+    flex-direction: column;
+    gap: 10px;
   }
 
+  .slide-controls button {
+    margin: 0;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .progress-container {
+    bottom: 80px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .slide-indicators {
+    bottom: 40px;
+  }
+
+  .indicator {
+    width: 28px;
+    height: 28px;
+    font-size: 0.6rem;
+  }
+
+  /* Extra small screen typography */
   .display-2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .display-3 {
@@ -324,7 +449,60 @@ body {
   }
 
   .display-4 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+  }
+
+  .slide-icon i {
+    font-size: 2.5rem;
+  }
+
+  /* Architecture diagram for very small screens */
+  .architecture-diagram {
+    padding: 10px;
+  }
+
+  .arch-box {
+    min-width: 70px;
+    padding: 10px 6px !important;
+    font-size: 0.7rem;
+    margin: 5px 2px;
+  }
+
+  .arch-box i {
+    font-size: 1.2rem !important;
+  }
+
+  .arch-arrow i {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .slideshow-container {
+    padding-bottom: 120px;
+  }
+
+  .slide {
+    height: calc(100vh - 180px);
+  }
+
+  .slide-controls {
+    bottom: 60px;
+    padding: 10px 15px;
+  }
+
+  .slide-controls button {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .progress-container {
+    bottom: 20px;
+  }
+
+  .slide-indicators {
+    display: none; /* Hide indicators in landscape to save space */
   }
 }
 
@@ -359,32 +537,326 @@ body {
 /* Navbar Enhancement */
 .navbar {
   backdrop-filter: blur(10px);
-  background: rgba(13, 110, 253, 0.9) !important;
+  background: rgba(254, 56, 66, 0.95) !important;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
 }
 
 .navbar-brand {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Scrollbar Styling */
 .slide::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 .slide::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 .slide::-webkit-scrollbar-thumb {
-  background: rgba(13, 110, 253, 0.6);
-  border-radius: 4px;
+  background: rgba(254, 56, 66, 0.6);
+  border-radius: 3px;
 }
 
 .slide::-webkit-scrollbar-thumb:hover {
-  background: rgba(13, 110, 253, 0.8);
+  background: rgba(254, 56, 66, 0.8);
+}
+
+/* Enhanced Modern Animations */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(80px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotate(2deg);
+  }
+  70% {
+    transform: scale(0.98) rotate(-1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(400px) rotateY(90deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(400px) rotateY(0deg) scale(1);
+  }
+}
+
+@keyframes zoomInRotate {
+  from {
+    opacity: 0;
+    transform: scale(0.5) rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    border-color: transparent;
+  }
+  51%,
+  100% {
+    border-color: var(--primary-color);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(254, 56, 66, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 20px rgba(254, 56, 66, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(254, 56, 66, 0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(254, 56, 66, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(254, 56, 66, 0.8);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes morphBackground {
+  0%,
+  100% {
+    background: linear-gradient(135deg, #fe3842 0%, #ff6b6b 100%);
+  }
+  25% {
+    background: linear-gradient(135deg, #f093fb 0%, #fe3842 100%);
+  }
+  50% {
+    background: linear-gradient(135deg, #4facfe 0%, #fe3842 100%);
+  }
+  75% {
+    background: linear-gradient(135deg, #43e97b 0%, #fe3842 100%);
+  }
+}
+
+/* Enhanced Slide Animations */
+.slide {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  animation: slideIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.slide::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s ease-in-out;
+  z-index: 1;
+}
+
+.slide.active {
+  display: block;
+  animation: slideInFromRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Enhanced Card Animations */
+.card {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: none;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+  z-index: 1;
+}
+
+.card:hover::before {
+  transform: translateX(100%);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+  background: rgba(255, 255, 255, 1);
+}
+
+.card:nth-child(1) {
+  animation: slideInFromLeft 0.8s ease-out 0.1s both;
+}
+
+.card:nth-child(2) {
+  animation: slideInFromBottom 0.8s ease-out 0.2s both;
+}
+
+.card:nth-child(3) {
+  animation: slideInFromRight 0.8s ease-out 0.3s both;
+}
+
+.card:nth-child(4) {
+  animation: flipIn 0.8s ease-out 0.4s both;
+}
+
+/* Enhanced Icons */
+.slide-icon i {
+  font-size: 5rem;
+  color: var(--primary-color);
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: bounceIn 1s ease-out 0.5s both, float 3s ease-in-out infinite 2s;
+}
+
+.card i.fa-3x {
+  animation: zoomInRotate 0.8s ease-out, pulse 2s infinite 1s;
+}
+
+.card i.fa-2x {
+  transition: all 0.3s ease;
+}
+
+.card:hover i.fa-2x {
+  transform: scale(1.2) rotate(5deg);
+  color: var(--primary-color);
+}
+
+/* Enhanced Typography */
+.display-3,
+.display-4 {
+  background: linear-gradient(45deg, var(--primary-color), var(--purple-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideInFromBottom 1s ease-out;
+}
+
+.typewriter-text {
+  overflow: hidden;
+  border-right: 3px solid var(--primary-color);
+  white-space: nowrap;
+  animation: typewriter 3s steps(40) 1s both, blink 1s infinite 4s;
+}
+
+/* Swipe Indicator for Mobile */
+.swipe-indicator {
+  position: fixed;
+  bottom: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(254, 56, 66, 0.9);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  z-index: 1001;
+  animation: fadeInOut 3s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Print Styles */
@@ -392,7 +864,8 @@ body {
   .navbar,
   .slide-controls,
   .progress-container,
-  .slide-indicators {
+  .slide-indicators,
+  .swipe-indicator {
     display: none !important;
   }
 
@@ -401,10 +874,38 @@ body {
     height: auto !important;
     page-break-after: always;
     background: white !important;
+    padding: 20px !important;
   }
 
   .slideshow-container {
     height: auto !important;
-    padding-top: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles for accessibility */
+.slide-controls button:focus,
+.indicator:focus {
+  outline: 3px solid rgba(254, 56, 66, 0.5);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid var(--primary-color);
+  }
+
+  .slide-controls {
+    border: 2px solid var(--primary-color);
   }
 }
