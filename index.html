@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskNest - Project Presentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-tasks me-2"></i>TaskNest Presentation
+            </a>
+            <div class="navbar-nav ms-auto">
+                <span class="navbar-text">
+                    <span id="current-slide">1</span> / <span id="total-slides">11</span>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <!-- Slide 1: Title Slide -->
+        <div class="slide active" id="slide-1">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <div class="slide-icon mb-4">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h1 class="display-3 fw-bold text-primary mb-4">TaskNest</h1>
+                    <h2 class="h3 text-secondary mb-5">A Comprehensive Todo and Task Management Web Application</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card shadow-lg border-0">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title text-primary mb-3">Project Details</h5>
+                                    <p class="mb-2"><strong>Group Members:</strong> [Your Group Members' Names]</p>
+                                    <p class="mb-0"><strong>Date:</strong> <span id="current-date"></span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Introduction -->
+        <div class="slide" id="slide-2">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">Introduction</h1>
+                        <div class="row">
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body">
+                                        <div class="text-center mb-3">
+                                            <i class="fas fa-lightbulb fa-3x text-warning"></i>
+                                        </div>
+                                        <h5 class="card-title text-primary">Project Overview</h5>
+                                        <p class="card-text">TaskNest is a web application designed to help individuals and teams efficiently organize, track, and manage daily tasks, projects, and events.</p>
+                                        <p class="card-text">Aims to enhance personal and professional productivity by transforming chaotic schedules into structured plans.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body">
+                                        <div class="text-center mb-3">
+                                            <i class="fas fa-exclamation-triangle fa-3x text-danger"></i>
+                                        </div>
+                                        <h5 class="card-title text-primary">Problem Statement</h5>
+                                        <p class="card-text">Modern life leads to disorganization, missed deadlines, and decreased productivity due to overwhelming responsibilities.</p>
+                                        <p class="card-text">Existing tools often lack holistic integration and intuitive user experiences.</p>
+                                        <p class="card-text">TaskNest provides a centralized, accessible, and intuitive solution.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body">
+                                        <div class="text-center mb-3">
+                                            <i class="fas fa-target fa-3x text-success"></i>
+                                        </div>
+                                        <h5 class="card-title text-primary">Objectives</h5>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i>Develop a robust, scalable, and user-friendly app</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Implement secure user authentication</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Integrate calendar view for events</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Ensure cross-device accessibility</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>Provide programmatic API</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Requirements Analysis -->
+        <div class="slide" id="slide-3">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">Requirements Analysis</h1>
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0"><i class="fas fa-cogs me-2"></i>Functional Requirements</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <h6 class="text-primary">User Management</h6>
+                                            <p class="small">Registration, Login/Logout, Profile Management</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="text-primary">Task Management</h6>
+                                            <p class="small">Create, View, Edit, Delete, Update Status, Set Priority, Bulk Actions, Filtering/Searching</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="text-primary">Event Management</h6>
+                                            <p class="small">Create, View (Calendar), Edit, Delete events</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="text-primary">Reporting</h6>
+                                            <p class="small">Dashboard summaries, Vital Tasks overview</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0"><i class="fas fa-shield-alt me-2"></i>Non-Functional Requirements</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <h6 class="text-success">Performance</h6>
+                                            <p class="small">Fast response times (2-3 seconds), scalability, concurrency</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="text-success">Security</h6>
+                                            <p class="small">JWT authentication, authorization, data protection, HTTPS</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="text-success">Usability</h6>
+                                            <p class="small">Intuitive interface, consistency, clear feedback, accessibility</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="text-success">Reliability</h6>
+                                            <p class="small">High availability (99.5% uptime), robust error handling</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="text-success">Maintainability</h6>
+                                            <p class="small">Modular codebase, well-documented, testable</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: System Design - Architecture & Database -->
+        <div class="slide" id="slide-4">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">System Design - Architecture & Database</h1>
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0"><i class="fas fa-sitemap me-2"></i>System Architecture</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="architecture-diagram mb-4">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="arch-box bg-primary text-white p-3 rounded">
+                                                    <i class="fas fa-desktop fa-2x mb-2"></i>
+                                                    <div>Frontend</div>
+                                                    <small>React</small>
+                                                </div>
+                                                <div class="arch-arrow">
+                                                    <i class="fas fa-arrow-right fa-2x text-secondary"></i>
+                                                </div>
+                                                <div class="arch-box bg-success text-white p-3 rounded">
+                                                    <i class="fas fa-server fa-2x mb-2"></i>
+                                                    <div>Backend</div>
+                                                    <small>Django</small>
+                                                </div>
+                                                <div class="arch-arrow">
+                                                    <i class="fas fa-arrow-right fa-2x text-secondary"></i>
+                                                </div>
+                                                <div class="arch-box bg-warning text-dark p-3 rounded">
+                                                    <i class="fas fa-database fa-2x mb-2"></i>
+                                                    <div>Database</div>
+                                                    <small>Supabase</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fas fa-check text-success me-2"></i>Client-Server Model</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>RESTful API over HTTPS</li>
+                                            <li><i class="fas fa-check text-success me-2"></i>JWT Security</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h5 class="mb-0"><i class="fas fa-database me-2"></i>Database Design</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Database:</strong> Supabase PostgreSQL</p>
+                                        <div class="mb-3">
+                                            <h6 class="text-warning">Key Entities:</h6>
+                                            <div class="entity-box mb-2 p-2 border rounded">
+                                                <strong>User</strong>
+                                                <small class="d-block text-muted">Authentication and profile data</small>
+                                            </div>
+                                            <div class="entity-box mb-2 p-2 border rounded">
+                                                <strong>Task</strong>
+                                                <small class="d-block text-muted">Title, description, due date, status, priority</small>
+                                            </div>
+                                            <div class="entity-box mb-2 p-2 border rounded">
+                                                <strong>Event</strong>
+                                                <small class="d-block text-muted">Title, date, description</small>
+                                            </div>
+                                            <div class="entity-box mb-2 p-2 border rounded">
+                                                <strong>Priority</strong>
+                                                <small class="d-block text-muted">Low, Medium, High, Vital</small>
+                                            </div>
+                                            <div class="entity-box mb-2 p-2 border rounded">
+                                                <strong>Status</strong>
+                                                <small class="d-block text-muted">Not Started, In Progress, Completed, Overdue</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: System Design - UI & Technology Stack -->
+        <div class="slide" id="slide-5">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">System Design - UI & Technology Stack</h1>
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-purple text-white">
+                                        <h5 class="mb-0"><i class="fas fa-paint-brush me-2"></i>UI Design Principles</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="ui-principle mb-3">
+                                            <h6 class="text-purple"><i class="fas fa-minimize me-2"></i>Minimalist Design</h6>
+                                            <p class="small">Clean and uncluttered interface</p>
+                                        </div>
+                                        <div class="ui-principle mb-3">
+                                            <h6 class="text-purple"><i class="fas fa-compass me-2"></i>Intuitive Navigation</h6>
+                                            <p class="small">Consistent sidebar navigation</p>
+                                        </div>
+                                        <div class="ui-principle mb-3">
+                                            <h6 class="text-purple"><i class="fas fa-palette me-2"></i>Color Palette</h6>
+                                            <p class="small">Effective use of color for status/priority indication</p>
+                                        </div>
+                                        <div class="ui-principle mb-3">
+                                            <h6 class="text-purple"><i class="fas fa-mobile-alt me-2"></i>Responsiveness</h6>
+                                            <p class="small">Adapts seamlessly to various screen sizes</p>
+                                        </div>
+                                        <div class="ui-principle mb-3">
+                                            <h6 class="text-purple"><i class="fas fa-comments me-2"></i>Feedback Mechanisms</h6>
+                                            <p class="small">Clear visual cues for user actions</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-dark text-white">
+                                        <h5 class="mb-0"><i class="fas fa-code me-2"></i>Technology Stack</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="tech-stack">
+                                            <div class="tech-category mb-3">
+                                                <h6 class="text-primary">Frontend</h6>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="badge bg-primary">React</span>
+                                                    <span class="badge bg-primary">Bootstrap CSS</span>
+                                                </div>
+                                            </div>
+                                            <div class="tech-category mb-3">
+                                                <h6 class="text-success">Backend</h6>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="badge bg-success">Django</span>
+                                                    <span class="badge bg-success">Django REST Framework</span>
+                                                    <span class="badge bg-success">Gunicorn</span>
+                                                </div>
+                                            </div>
+                                            <div class="tech-category mb-3">
+                                                <h6 class="text-warning">Database</h6>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="badge bg-warning text-dark">Supabase PostgreSQL</span>
+                                                </div>
+                                            </div>
+                                            <div class="tech-category mb-3">
+                                                <h6 class="text-info">Authentication</h6>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="badge bg-info">JSON Web Tokens (JWT)</span>
+                                                </div>
+                                            </div>
+                                            <div class="tech-category mb-3">
+                                                <h6 class="text-secondary">Tools & Deployment</h6>
+                                                <div class="d-flex flex-wrap gap-2">
+                                                    <span class="badge bg-secondary">Git</span>
+                                                    <span class="badge bg-secondary">GitHub</span>
+                                                    <span class="badge bg-secondary">Vercel</span>
+                                                    <span class="badge bg-secondary">Railway</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Implementation Highlights -->
+        <div class="slide" id="slide-6">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">Implementation Highlights</h1>
+                        <div class="row">
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0"><i class="fas fa-laptop-code me-2"></i>Development Environment</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled">
+                                            <li><i class="fab fa-linux me-2 text-dark"></i><strong>OS:</strong> Linux-based systems</li>
+                                            <li><i class="fas fa-code me-2 text-primary"></i><strong>IDE:</strong> Visual Studio Code</li>
+                                            <li><i class="fas fa-box me-2 text-success"></i><strong>Package Managers:</strong> npm/yarn, pip</li>
+                                            <li><i class="fas fa-vial me-2 text-warning"></i><strong>API Testing:</strong> Postman/Insomnia</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0"><i class="fas fa-puzzle-piece me-2"></i>Key Components</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-3">
+                                            <h6 class="text-primary">Frontend Components</h6>
+                                            <ul class="small">
+                                                <li>Dashboard</li>
+                                                <li>TaskList & TaskItem</li>
+                                                <li>Calendar</li>
+                                                <li>Profile</li>
+                                            </ul>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h6 class="text-success">Backend Modules</h6>
+                                            <ul class="small">
+                                                <li>User Authentication (JWT)</li>
+                                                <li>Task Management API</li>
+                                                <li>Event Management API</li>
+                                                <li>Django ORM models</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h5 class="mb-0"><i class="fas fa-tools me-2"></i>Challenges & Solutions</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="challenge mb-3">
+                                            <h6 class="text-warning"><i class="fas fa-shield-alt me-1"></i>Secure JWT Flow</h6>
+                                            <p class="small">Implemented robust token refresh and secure storage strategies</p>
+                                        </div>
+                                        <div class="challenge mb-3">
+                                            <h6 class="text-warning"><i class="fas fa-mobile-alt me-1"></i>Responsive Design</h6>
+                                            <p class="small">Leveraged Bootstrap CSS for adaptive UI across devices</p>
+                                        </div>
+                                        <div class="challenge mb-3">
+                                            <h6 class="text-warning"><i class="fas fa-database me-1"></i>Efficient Data Handling</h6>
+                                            <p class="small">Optimized filtering/searching and efficient data re-fetching</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Testing and Evaluation -->
+        <div class="slide" id="slide-7">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">Testing and Evaluation</h1>
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0"><i class="fas fa-flask me-2"></i>Testing Strategy</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="testing-type mb-3">
+                                            <h6 class="text-success"><i class="fas fa-cube me-2"></i>Unit Testing</h6>
+                                            <p class="small">Individual components/functions testing</p>
+                                        </div>
+                                        <div class="testing-type mb-3">
+                                            <h6 class="text-success"><i class="fas fa-link me-2"></i>Integration Testing</h6>
+                                            <p class="small">Frontend-backend API interactions</p>
+                                        </div>
+                                        <div class="testing-type mb-3">
+                                            <h6 class="text-success"><i class="fas fa-hand-pointer me-2"></i>Manual Testing</h6>
+                                            <p class="small">Comprehensive user flow validation, cross-browser/device checks</p>
+                                        </div>
+                                        <div class="testing-type mb-3">
+                                            <h6 class="text-success"><i class="fas fa-users me-2"></i>User Acceptance Testing</h6>
+                                            <p class="small">Informal feedback from pilot users led to iterative improvements</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0"><i class="fas fa-clipboard-check me-2"></i>Sample Test Cases</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="test-case mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-user-plus text-primary me-2"></i>
+                                                <strong>User Registration/Login</strong>
+                                            </div>
+                                            <p class="small text-muted">Testing authentication flow and validation</p>
+                                        </div>
+                                        <div class="test-case mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-user-edit text-success me-2"></i>
+                                                <strong>Profile Update</strong>
+                                            </div>
+                                            <p class="small text-muted">Testing profile management functionality</p>
+                                        </div>
+                                        <div class="test-case mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-tasks text-warning me-2"></i>
+                                                <strong>Task CRUD Operations</strong>
+                                            </div>
+                                            <p class="small text-muted">Create, Update, Delete, Filter Tasks</p>
+                                        </div>
+                                        <div class="test-case mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-calendar text-info me-2"></i>
+                                                <strong>Event Scheduling</strong>
+                                            </div>
+                                            <p class="small text-muted">Testing calendar integration and event management</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Deployment and Maintenance -->
+        <div class="slide" id="slide-8">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">Deployment and Maintenance</h1>
+                        <div class="row">
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-primary text-white">
+                                        <h5 class="mb-0"><i class="fas fa-rocket me-2"></i>Deployment Strategy</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="deployment-item mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-desktop text-primary me-2"></i>
+                                                <strong>Frontend: Vercel</strong>
+                                            </div>
+                                            <p class="small">Static assets, CDN, CI/CD</p>
+                                        </div>
+                                        <div class="deployment-item mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-server text-success me-2"></i>
+                                                <strong>Backend: Railway</strong>
+                                            </div>
+                                            <p class="small">Django, Gunicorn WSGI server, HTTPS</p>
+                                        </div>
+                                        <div class="deployment-item mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fas fa-database text-warning me-2"></i>
+                                                <strong>Database: Supabase</strong>
+                                            </div>
+                                            <p class="small">PostgreSQL managed service</p>
+                                        </div>
+                                        <div class="deployment-item mb-3">
+                                            <div class="d-flex align-items-center mb-2">
+                                                <i class="fab fa-git-alt text-dark me-2"></i>
+                                                <strong>Version Control</strong>
+                                            </div>
+                                            <p class="small">Git & GitHub for both frontend and backend</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0"><i class="fas fa-cloud me-2"></i>Hosting Environment</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="hosting-item mb-3">
+                                            <h6 class="text-primary"><i class="fas fa-bolt me-2"></i>Vercel</h6>
+                                            <p class="small">High-performance static hosting with global CDN</p>
+                                        </div>
+                                        <div class="hosting-item mb-3">
+                                            <h6 class="text-success"><i class="fas fa-train me-2"></i>Railway</h6>
+                                            <p class="small">Scalable backend application hosting with automatic deployments</p>
+                                        </div>
+                                        <div class="hosting-item mb-3">
+                                            <h6 class="text-warning"><i class="fas fa-shield-alt me-2"></i>Supabase</h6>
+                                            <p class="small">Reliable and scalable managed database with real-time features</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h5 class="mb-0"><i class="fas fa-wrench me-2"></i>Maintenance</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2"><i class="fas fa-sync text-info me-2"></i>Regular software updates</li>
+                                            <li class="mb-2"><i class="fas fa-chart-line text-success me-2"></i>Comprehensive monitoring</li>
+                                            <li class="mb-2"><i class="fas fa-save text-primary me-2"></i>Automated database backups</li>
+                                            <li class="mb-2"><i class="fas fa-search text-warning me-2"></i>Periodic security audits</li>
+                                            <li class="mb-2"><i class="fas fa-tachometer-alt text-danger me-2"></i>Performance optimization</li>
+                                            <li class="mb-2"><i class="fas fa-expand-arrows-alt text-secondary me-2"></i>Scalability planning</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Conclusion -->
+        <div class="slide" id="slide-9">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">Conclusion</h1>
+                        <div class="row">
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-success text-white">
+                                        <h5 class="mb-0"><i class="fas fa-trophy me-2"></i>Project Summary</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="summary-point mb-3">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>TaskNest successfully developed as a secure, comprehensive, and user-friendly web application</span>
+                                        </div>
+                                        <div class="summary-point mb-3">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>Met key objectives including secure user management and robust task/event features</span>
+                                        </div>
+                                        <div class="summary-point mb-3">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>Achieved responsive UI and reliable backend API</span>
+                                        </div>
+                                        <div class="summary-point mb-3">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <span>Demonstrates effective full-stack web development</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-header bg-info text-white">
+                                        <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Lessons Learned</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="lesson mb-3">
+                                            <h6 class="text-info"><i class="fas fa-drafting-compass me-2"></i>Architecture Planning</h6>
+                                            <p class="small">Value of detailed requirements and modular architecture</p>
+                                        </div>
+                                        <div class="lesson mb-3">
+                                            <h6 class="text-info"><i class="fas fa-shield-alt me-2"></i>Security Implementation</h6>
+                                            <p class="small">Importance of secure API design with JWT authentication</p>
+                                        </div>
+                                        <div class="lesson mb-3">
+                                            <h6 class="text-info"><i class="fas fa-mobile-alt me-2"></i>Responsive Design</h6>
+                                            <p class="small">Challenges and solutions for cross-device compatibility</p>
+                                        </div>
+                                        <div class="lesson mb-3">
+                                            <h6 class="text-info"><i class="fas fa-vial me-2"></i>Testing & Feedback</h6>
+                                            <p class="small">Necessity of continuous testing and user feedback integration</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Future Enhancements -->
+        <div class="slide" id="slide-10">
+            <div class="container h-100 py-5">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12">
+                        <h1 class="display-4 fw-bold text-primary mb-5 text-center">Future Enhancements</h1>
+                        <div class="row">
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                                        <h5 class="card-title text-primary">Collaboration Features</h5>
+                                        <ul class="list-unstyled text-start">
+                                            <li><i class="fas fa-share text-success me-2"></i>Shared task lists</li>
+                                            <li><i class="fas fa-user-tag text-success me-2"></i>Task assignment</li>
+                                            <li><i class="fas fa-comments text-success me-2"></i>Comments system</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-bell fa-3x text-warning mb-3"></i>
+                                        <h5 class="card-title text-warning">Notifications & Reminders</h5>
+                                        <ul class="list-unstyled text-start">
+                                            <li><i class="fas fa-envelope text-info me-2"></i>Email notifications</li>
+                                            <li><i class="fas fa-sms text-info me-2"></i>SMS alerts</li>
+                                            <li><i class="fas fa-mobile-alt text-info me-2"></i>In-app notifications</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-tasks fa-3x text-success mb-3"></i>
+                                        <h5 class="card-title text-success">Advanced Task Features</h5>
+                                        <ul class="list-unstyled text-start">
+                                            <li><i class="fas fa-redo text-primary me-2"></i>Recurring tasks</li>
+                                            <li><i class="fas fa-list text-primary me-2"></i>Sub-tasks/checklists</li>
+                                            <li><i class="fas fa-paperclip text-primary me-2"></i>File attachments</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-sync fa-3x text-info mb-3"></i>
+                                        <h5 class="card-title text-info">Integration</h5>
+                                        <ul class="list-unstyled text-start">
+                                            <li><i class="fas fa-calendar-alt text-warning me-2"></i>External calendar sync</li>
+                                            <li><i class="fas fa-cloud text-warning me-2"></i>Cloud storage integration</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-chart-bar fa-3x text-purple mb-3"></i>
+                                        <h5 class="card-title text-purple">Analytics</h5>
+                                        <ul class="list-unstyled text-start">
+                                            <li><i class="fas fa-chart-line text-success me-2"></i>Productivity reports</li>
+                                            <li><i class="fas fa-tachometer-alt text-success me-2"></i>Detailed dashboards</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 mb-4">
+                                <div class="card h-100 shadow border-0">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-mobile fa-3x text-danger mb-3"></i>
+                                        <h5 class="card-title text-danger">Mobile Applications</h5>
+                                        <ul class="list-unstyled text-start">
+                                            <li><i class="fab fa-apple text-secondary me-2"></i>Native iOS app</li>
+                                            <li><i class="fab fa-android text-secondary me-2"></i>Native Android app</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Questions & Thank You -->
+        <div class="slide" id="slide-11">
+            <div class="container h-100 d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <div class="mb-5">
+                        <i class="fas fa-question-circle fa-5x text-primary mb-4"></i>
+                        <h1 class="display-2 fw-bold text-primary mb-4">Questions?</h1>
+                        <p class="lead text-secondary mb-5">We're here to answer any questions about TaskNest</p>
+                    </div>
+                    
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-md-8">
+                            <div class="card shadow-lg border-0">
+                                <div class="card-body p-5">
+                                    <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+                                    <h2 class="display-4 fw-bold text-primary mb-3">Thank You!</h2>
+                                    <p class="lead text-secondary">Thank you for your attention and interest in TaskNest</p>
+                                    <div class="mt-4">
+                                        <i class="fas fa-envelope text-primary me-3"></i>
+                                        <i class="fab fa-github text-dark me-3"></i>
+                                        <i class="fab fa-linkedin text-info me-3"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="slide-controls">
+        <button class="btn btn-outline-primary btn-lg me-3" id="prevBtn" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left me-2"></i>Previous
+        </button>
+        <button class="btn btn-primary btn-lg" id="nextBtn" onclick="changeSlide(1)">
+            Next<i class="fas fa-chevron-right ms-2"></i>
+        </button>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress">
+            <div class="progress-bar bg-primary" id="progressBar" role="progressbar" style="width: 9.09%"></div>
+        </div>
+    </div>
+
+    <!-- Slide Indicators -->
+    <div class="slide-indicators">
+        <div class="d-flex justify-content-center flex-wrap gap-2">
+            <button class="indicator active" onclick="currentSlide(1)">1</button>
+            <button class="indicator" onclick="currentSlide(2)">2</button>
+            <button class="indicator" onclick="currentSlide(3)">3</button>
+            <button class="indicator" onclick="currentSlide(4)">4</button>
+            <button class="indicator" onclick="currentSlide(5)">5</button>
+            <button class="indicator" onclick="currentSlide(6)">6</button>
+            <button class="indicator" onclick="currentSlide(7)">7</button>
+            <button class="indicator" onclick="currentSlide(8)">8</button>
+            <button class="indicator" onclick="currentSlide(9)">9</button>
+            <button class="indicator" onclick="currentSlide(10)">10</button>
+            <button class="indicator" onclick="currentSlide(11)">11</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
